@@ -1,10 +1,27 @@
 {% extends 'notes/layout.html' %}
 
 {% block content %}
-<h1>Title: {{ note.title }}</h1>
-<p><strong>Создал: </strong> <a href="">{{ note.user }}</a></p> <!-- author detail link not yet defined -->
-<p><strong>Текст: </strong> {{ note.textarea }}</p>
-<p><strong>Статус: </strong> {{ note.status }}</p>
+<div class="page-wrapper">
+  <div class="page-content">
+    <div class="row">
+      <div class="col-xl-9 mx-auto">
+        <hr>
+        <h6 class="mb-0 text-uppercase">{{ note.title }}<p><em>({{ note.user }})</em></p></h6>
+        <hr/>
+        <div class="card">
+          <div class="card-body">
+            <p>{{ note.textarea }}</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary"><a href="#">Редактировать</a></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
 {% comment %} <ul>
   <li><a href="{% url 'note-update' note.id %}">Редактировать</a></li>
   <li><a href="{% url 'note-delete' note.id %}">Удалить</a></li>
