@@ -9,10 +9,7 @@
           <div class="card-body">
 						<form action="{% url 'create' %}" method="post" novalidate>
               {% csrf_token %}
-              {{ form.user }}
-              {{ form.title }}
-              {{ form.status }}
-              <textarea id="mytextarea" name="mytextarea" value="{{ form.textarea }}"></textarea>
+              <table>{{ form.as_table }}</table>
               <button type="submit" class="btn btn-primary">Submit</button>
 						</form>
 					</div>

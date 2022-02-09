@@ -138,14 +138,14 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # LOGIN_REDIRECT_URL = '/'
 
 
-TINYMCE_JS_URL = 'https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js'
+TINYMCE_JS_URL = os.path.join(BASE_DIR, 'notes/js/tinymce/tinymce.min.js')
 TINYMCE_COMPRESSOR = False
 
 # TINYMCE_JS_ROOT = os.path.join(MEDIA_URL, "path/to/tinymce")
 # TINYMCE_COMPRESSOR = True
 
 TINYMCE_DEFAULT_CONFIG = {
-    'selector': '#mytextarea',
+    'selector': 'textarea',
     'theme': 'advanced',
     'width': 600,
     'height': 300,
