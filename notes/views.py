@@ -25,9 +25,13 @@ class NoteListView(generic.ListView):
 class NoteCreate(CreateView):
     model = Note
     fields = ['title', 'textarea', 'status']
-    success_url = reverse_lazy('index')
+    success_url = reverse_lazy('notes')
+    template_name = 'notes/create.html'
+    
 
 class NoteUpdate(UpdateView):
     model = Note
     fields = ['title', 'textarea', 'status']
-    success_url = reverse_lazy('index')
+    template_name = 'notes/note_form.html'
+    success_url = reverse_lazy('notes')
+    

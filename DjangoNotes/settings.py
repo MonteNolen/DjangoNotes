@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -33,6 +34,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     #my app
     'notes',
+    'tinymce',
     #default app
     'django.contrib.admin',
     'django.contrib.auth',
@@ -57,7 +59,7 @@ ROOT_URLCONF = 'DjangoNotes.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR, 'templates'],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -134,3 +136,23 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Redirect to home URL after login (Default redirects to /accounts/profile/)
 # LOGIN_REDIRECT_URL = '/'
+
+
+TINYMCE_JS_URL = 'https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js'
+TINYMCE_COMPRESSOR = False
+
+# TINYMCE_JS_ROOT = os.path.join(MEDIA_URL, "path/to/tinymce")
+# TINYMCE_COMPRESSOR = True
+
+TINYMCE_DEFAULT_CONFIG = {
+    'selector': '#mytextarea',
+    'theme': 'advanced',
+    'width': 600,
+    'height': 300,
+    'theme_advanced_toolbar_location': 'top',
+    'theme_advanced_buttons1': 'bold,italic,underline,strikethrough,|,justifyleft,justifycenter,justifyright,justifyfull,|,bullist,numlist,|,outdent,indent,hr,|,undo,redo',
+    'theme_advanced_buttons2': 'cut,copy,paste,pastetext,pasteword,|,search,replace,|,link,unlink,charmap,|,visualaid,table,|,blockquote,sub,sup,|,preview,code,emotions,image',
+    'theme_advanced_buttons3': '',
+    'plugins': 'paste,table,spellchecker,searchreplace,emotions',
+    'theme_advanced_resizing': True,
+}
