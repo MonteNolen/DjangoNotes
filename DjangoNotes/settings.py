@@ -139,15 +139,16 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 TINYMCE_JS_URL = os.path.join(BASE_DIR, 'notes/js/tinymce/tinymce.min.js')
-TINYMCE_COMPRESSOR = False
+TINYMCE_SPELLCHECKER = True
+TINYMCE_COMPRESSOR = True
 
 # TINYMCE_JS_ROOT = os.path.join(MEDIA_URL, "path/to/tinymce")
 # TINYMCE_COMPRESSOR = True
 
 TINYMCE_DEFAULT_CONFIG = {
-    'selector': 'textarea',
+    'selector': '#mytextarea',
     'theme': 'advanced',
-    'width': 600,
+    'width': 900,
     'height': 300,
     'theme_advanced_toolbar_location': 'top',
     'theme_advanced_buttons1': 'bold,italic,underline,strikethrough,|,justifyleft,justifycenter,justifyright,justifyfull,|,bullist,numlist,|,outdent,indent,hr,|,undo,redo',

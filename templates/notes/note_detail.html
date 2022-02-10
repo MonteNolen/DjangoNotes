@@ -10,7 +10,9 @@
         <hr/>
         <div class="card">
           <div class="card-body">
-            <p>{{ note.textarea }}</p>
+            
+            {{ note.textarea|safe }}
+            
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-primary"><a href="{% url 'note-edit' note.id %}">Редактировать</a></button>

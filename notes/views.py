@@ -3,6 +3,7 @@ from django.views import generic
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse, reverse_lazy
 from django.http import HttpResponse
+from .forms import *
 
 from .models import NoteAuthor, Note
 
@@ -51,7 +52,3 @@ class NoteCreate(CreateView):
     def form_valid(self, form):
         form.save()
         return super(NoteCreate, self).form_valid(form)
-    
-
-
-    

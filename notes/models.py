@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.urls import reverse
+from tinymce.models import HTMLField
 
 POST_CHOICES = (
     ('o', 'Оператор'),
@@ -31,7 +32,7 @@ class Note(models.Model):
     user = models.ForeignKey('NoteAuthor', on_delete=models.SET_NULL, blank=True, null=True, verbose_name='Пользователь')
     created = models.DateField("Создана", auto_now=True)
     status = models.BooleanField("Закрыто?", default=False)
-    textarea = models.TextField("Поле для отчета", max_length=1000)
+    textarea = HTMLField("Поле для отчета", max_length=1000)
 
     class Meta:
         verbose_name = 'Отчет'

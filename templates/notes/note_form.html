@@ -1,19 +1,40 @@
 {% extends 'notes/layout.html' %}
-
 {% block content %}
 <div class="page-wrapper">
     <div class="page-content">
         <div class="row">
             <div class="col-xl-9 mx-auto">
                 <hr>
-                <h6 class="mb-0 text-uppercase">{{ note.title }}<p><em>({{ note.user }})</em></p></h6>
-                <hr/>
+                <h6 class="mb-0 text-uppercase">{{ note.title }}<p><em>({{ note.user }})</em></p>
+                </h6>
+                <hr />
                 <div class="card">
                     <div class="card-body">
                         <form action="" method="post">
-                        {% csrf_token %}
-                        <table>{{ form.as_table }}</table>
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                            {% csrf_token %}
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="input-group mb-3">
+                                        <label class="input-group-text" for="inputGroupSelect01">Пользователь</label>
+                                        {{ form.user }}
+                                    </div>
+                                    <div class="input-group mb-3">
+                                        <label class="input-group-text" for="inputGroupSelect01">Заголовок</label>
+                                        {{ form.title }}
+                                    </div>
+                                    <div class="input-group">
+                                        <label class="input-group-text" for="inputGroupSelect01">Поле для текста</label>
+                                        <textarea id="mytextarea" name="textarea">{{ form.textarea }}</textarea>
+                                    </div>
+                                    <div class="input-group-text">
+                                        <label class="" for="inputGroupSelect01">Поставьте галочку, если отчет
+                                            закрыт</label>
+                                        <p style="opacity: 0;">||||</p>{{ form.status }}
+                                    </div>
+                                </div>
+                            </div>
+                            {% comment %} <table>{{ form.as_table }}</table> {% endcomment %}
+                            <button type="submit" class="btn btn-primary">Отправить</button>
                         </form>
                     </div>
                 </div>
@@ -21,6 +42,4 @@
         </div>
     </div>
 </div>
-
-
 {% endblock content %}
