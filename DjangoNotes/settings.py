@@ -146,10 +146,10 @@ TINYMCE_COMPRESSOR = True
 # TINYMCE_COMPRESSOR = True
 
 TINYMCE_DEFAULT_CONFIG = {
-    'selector': '#mytextarea',
-    'theme': 'advanced',
-    'width': 900,
-    'height': 300,
+    #'selector': '#mytextarea',
+    #'theme': 'advanced',
+    # 'width': 900,
+    # 'height': 300,
     'theme_advanced_toolbar_location': 'top',
     'theme_advanced_buttons1': 'bold,italic,underline,strikethrough,|,justifyleft,justifycenter,justifyright,justifyfull,|,bullist,numlist,|,outdent,indent,hr,|,undo,redo',
     'theme_advanced_buttons2': 'cut,copy,paste,pastetext,pasteword,|,search,replace,|,link,unlink,charmap,|,visualaid,table,|,blockquote,sub,sup,|,preview,code,emotions,image',

@@ -41,6 +41,7 @@ class NoteUpdate(UpdateView):
         form.save()
         note = Note.objects.get(id=self.note_id)
         return super(NoteUpdate, self).form_valid(form)
+        
 
 
 class NoteCreate(CreateView):
