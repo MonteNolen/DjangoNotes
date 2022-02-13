@@ -3,95 +3,72 @@
 <div class="page-wrapper">
   <div class="page-content">
     <div class="row">
-      <div class="col col-lg-12 mx-auto">
-        <div class="card radius-10">
+      <div class="col col-lg mx-auto">
+        <div class="card">
           <div class="card-body">
-            <div class="d-flex align-items-center">
+            <div class="table-responsive">
               <div>
                 <h5 class="mb-0">Отчеты</h5>
               </div>
 
             </div>
             <hr />
-            <div class="row row-cols-auto g-3">
-              <table class="table align-middle mb-0">
-                <thead class="table-light">
-                  <tr>
-                    
-                    <th>Пользователь</th>
-                    <th>Название</th>
-                    <th>Статус</th>
-                    <th>Action</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {% for note in note_list %}
-                  <tr>
-                    
-                    <td>{{ note.user }}</td>
-                    <td>{{ note.title }}
-
-                      
-                      {% comment %} <div class="btn-group">
-                        
-                        <div class="d-flex order-actions" data-bs-toggle="dropdown"><a href="" class=""><i
-                              class="bx bx-cog"></i></a></div>
-                        <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-end">
-                          <p class="dropdown-item">{{ note.textarea }}</p>
-                        </div>
-                      </div> {% endcomment %}
-
-
-                      {% comment %} <button type="button" class="btn btn-light" data-bs-toggle="modal"
-                        data-bs-target="#exampleScrollableModal">{{ note.title }}</button>
-                      <!-- Modal -->
-                      <div class="modal fade" id="exampleScrollableModal" tabindex="-1" aria-hidden="true">
-                        <div class="modal-dialog modal-dialog-scrollable">
-                          <div class="modal-content">
-                            <div class="modal-header">
-                              <h5 class="modal-title">{{ note.title }}</h5>
-                              <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body">
-                              {{ note.textarea }}
-                              <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div> {% endcomment %}
-                    </td>
-                    <td>
-                      <div
-                        class="{% if note.status == True %} d-flex align-items-center text-danger {% else %} d-flex align-items-center text-success {% endif %}">
-                        <i class='bx bx-radio-circle-marked bx-burst bx-rotate-90 align-middle font-18 me-1'></i>
-                        <span>{{ note.status|yesno:"Закрыт, Открыт" }}</span>
+            <table id="example2" class="table table-striped ">
+              <thead>
+                <tr>
+                  <th>Пользователь</th>
+                  <th>Заголовок</th>
+                  <th>Статус</th>
+                  <th>Действие</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for note in note_list %}
+                <tr>
+                  <td>
+                    {{ note.user }}
+                  </td>
+                  <td>
+                    <p>
+                      <a class="btn btn-light" data-bs-toggle="collapse" href="#multiCollapse{{ note.pk }}" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">
+                        {{ note.title }}
+                      </a>
+                    </p>
+                    <p class="collapse multi-collapse" id="multiCollapse{{ note.pk }}">{{ note.textarea }}</p>
+                  </td>
+                  <td>
+                    <div
+                      class="{% if note.status == True %} d-flex align-items-center text-danger {% else %} d-flex align-items-center text-success {% endif %}">
+                      <i class='bx bx-radio-circle-marked bx-burst bx-rotate-90 align-middle font-18 me-1'></i>
+                      <span>{{ note.status|yesno:"Закрыт, Открыт" }}</span>
+                    </div>
+                  </td>
+                  <td>
+                    <div style="left: -20px;" class="btn-group">
+                      <div class="d-flex order-actions">
+                        <a href="{{ note.get_absolute_url }}" class="ms-4"><i class='bx bx-down-arrow-alt'></i></a>
                       </div>
-                    </td>
-                    <td>
-                      <div style="left: -20px;" class="btn-group">
-                        <div class="d-flex order-actions">
-                          <a href="{{ note.get_absolute_url }}" class="ms-4"><i class='bx bx-down-arrow-alt'></i></a>
-                        </div>
-                        <span style="opacity: 0;">||||</span>
-                        <div class="d-flex order-actions" data-bs-toggle="dropdown"><a href="" class=""><i
-                              class="bx bx-cog"></i></a></div>
-                        <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-end">
-                          <a class="dropdown-item" href="{% url 'note-edit' note.id%}">Редактировать</a>
-
-                          {% comment %} <div class="dropdown-divider"></div> <a class="dropdown-item"
-                            href="javascript:;">Открыть</a> {% endcomment %}
-                        </div>
+                      <span style="opacity: 0;">||||</span>
+                      <div class="d-flex order-actions" data-bs-toggle="dropdown"><a href="" class=""><i
+                            class="bx bx-cog"></i></a></div>
+                      <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-end">
+                        <a class="dropdown-item" href="{% url 'note-edit' note.id%}">Редактировать</a>
                       </div>
-                    </td>
-                  </tr>
-                  {% endfor %}
-                </tbody>
-              </table>
-              <!--end row-->
-            </div>
+                    </div>
+                  </td>
+                </tr>
+                {% endfor %}
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th>Пользователь</th>
+                  <th>Заголовок</th>
+                  <th>Статус</th>
+                  <th>Действие</th>
+                </tr>
+              </tfoot>
+            </table>
+            
           </div>
         </div>
       </div>
