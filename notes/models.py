@@ -29,7 +29,7 @@ class Note(models.Model):
     Модель для представления отчета
     """
     title = models.CharField("Заголовок", max_length=100)
-    user = models.ForeignKey('NoteAuthor', on_delete=models.SET_NULL, blank=True, null=True, verbose_name='Пользователь')
+    user = models.ForeignKey('NoteAuthor', on_delete=models.SET_NULL, null=True, verbose_name='Пользователь')
     created = models.DateField("Создана", auto_now=True)
     status = models.BooleanField("Закрыто?", default=False)
     textarea = HTMLField("Поле для отчета", max_length=2000)
