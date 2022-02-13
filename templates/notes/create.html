@@ -7,15 +7,13 @@
       <div class="col-xl-9 mx-auto">
         <div class="card">
           <div class="card-body">
-						<form action="{% url 'create' %}" method="post">
+            <form action="{% url 'create' %}" method="post">
               {% csrf_token %}
               <div class="card">
                 <div class="card-body">
                   <div class="input-group mb-3">
                     <label class="input-group-text" for="inputGroupSelect01">Пользователь</label>
-                   
-                      {{ form.user }}
-                    
+                    {{ form.user }}
                   </div>
                   <div class="input-group mb-3">
                     <label class="input-group-text" for="inputGroupSelect01">Заголовок</label>
@@ -26,15 +24,15 @@
                     <textarea id="mytextarea" name="textarea"></textarea>
                   </div>
                   <div class="input-group-text">
-										 <label class="" for="inputGroupSelect01">Поставьте галочку, если отчет закрыт</label>
-                     <p style="opacity: 0;">||||</p>{{ form.status }}
-									</div>
+                    <label class="" for="inputGroupSelect01">Поставьте галочку, если отчет закрыт</label>
+                    <p style="opacity: 0;">||||</p>{{ form.status }}
+                  </div>
                 </div>
               </div>
               {% comment %} <table>{{ form.as_table }}</table> {% endcomment %}
               <button type="submit" class="btn btn-light">Отправить</button>
-						</form>
-					</div>
+            </form>
+          </div>
         </div>
       </div>
     </div>

@@ -10,7 +10,6 @@
               <div>
                 <h5 class="mb-0">Отчеты</h5>
               </div>
-
             </div>
             <hr />
             <table id="example2" class="table table-striped ">
@@ -30,11 +29,13 @@
                   </td>
                   <td>
                     <p>
-                      <a class="btn btn-light" data-bs-toggle="collapse" href="#multiCollapse{{ note.pk }}" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">
+                      <a class="btn btn-light" data-bs-toggle="collapse" href="#multiCollapse{{ note.pk }}"
+                        role="button" aria-expanded="false" aria-controls="multiCollapseExample1">
                         {{ note.title }}
                       </a>
                     </p>
-                    <p class="collapse multi-collapse" id="multiCollapse{{ note.pk }}">{{ note.textarea }}</p>
+                    <div class="collapse multi-collapse" id="multiCollapse{{ note.pk }}">
+                      {% autoescape off %}{{ note.textarea }}{% endautoescape %}</div>
                   </td>
                   <td>
                     <div
@@ -68,7 +69,6 @@
                 </tr>
               </tfoot>
             </table>
-            
           </div>
         </div>
       </div>

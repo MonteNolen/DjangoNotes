@@ -1,24 +1,24 @@
 {% extends 'notes/layout.html' %}
-
 {% block content %}
 <div class="page-wrapper">
   <div class="page-content">
     <div class="row">
       <div class="col-xl-9 mx-auto">
         <hr>
-        <h6 class="mb-0 text-uppercase">{{ note.title }}<p><em>({{ note.user }})</em></p></h6>
-        <hr/>
+        <h6 class="mb-0 text-uppercase">{{ note.title }}<p><em>({{ note.user }})</em></p>
+        </h6>
+        <hr />
         <div class="card">
           <div class="card-body">
             {{ note.textarea|safe }}
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-light"><a href="{% url 'note-edit' note.id %}">Редактировать</a></button>
+            <button type="button" class="btn btn-light"><a
+                href="{% url 'note-edit' note.id %}">Редактировать</a></button>
           </div>
         </div>
       </div>
     </div>
   </div>
 </div>
-
 {% endblock content %}
