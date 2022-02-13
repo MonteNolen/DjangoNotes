@@ -15,6 +15,7 @@
             <table id="example2" class="table table-striped ">
               <thead>
                 <tr>
+                  <th>Дата создания</th>
                   <th>Пользователь</th>
                   <th>Заголовок</th>
                   <th>Статус</th>
@@ -24,6 +25,9 @@
               <tbody>
                 {% for note in note_list %}
                 <tr>
+                  <td>
+                    {{ note.created }}
+                  </td>
                   <td>
                     {{ note.user }}
                   </td>
