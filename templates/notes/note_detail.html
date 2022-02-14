@@ -5,7 +5,7 @@
     <div class="row">
       <div class="col-xl-9 mx-auto">
         <hr>
-        <h6 class="mb-0 text-uppercase">{{ note.title }}<p><em>({{ note.user }})</em></p>
+        <h6 class="mb-0 text-uppercase">{{ note.user }}
         </h6>
         <hr />
         <div class="card">
@@ -13,8 +13,7 @@
             {{ note.textarea|safe }}
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-light"><a
-                href="{% url 'note-edit' note.id %}">Редактировать</a></button>
+            <a class="font-12 text-white btn btn-light" href="{% url 'note-edit' note.id %}"><i class="fadeIn animated bx bx-message-edit"></i>Edit</a>
           </div>
         </div>
       </div>

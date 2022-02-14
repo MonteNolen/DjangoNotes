@@ -20,6 +20,8 @@
 	<link href="{% static 'notes/css/bootstrap.min.css' %}" rel="stylesheet">
 	<link href="{% static 'notes/css/app.css' %}" rel="stylesheet">
 	<link href="{% static 'notes/css/icons.css' %}" rel="stylesheet">
+	<!--Feather js-->
+	<script src="{% static 'notes/js/feather.min.js' %}"></script>
 	<!-- Theme Style CSS -->
 	{% comment %} <link rel="stylesheet" href="{% static 'notes/css/dark-theme.css' %}" />
 	<link rel="stylesheet" href="{% static 'notes/css/semi-dark.css' %}" />
@@ -36,16 +38,13 @@
 		<div class="sidebar-wrapper" data-simplebar="true">
 			<div class="sidebar-header">
 				<div>
-					<img src="{% static 'notes/images/logo-icon.png' %}" class="logo-icon" alt="logo icon">
-				</div>
-				<div>
-					<h6 class="logo-text">11111</h6>
+					<img src="{% static 'notes/images/image.svg' %}" class="logo-icon" alt="logo icon">
 				</div>
 				<div class="toggle-icon ms-auto"><i class='bx bx-arrow-to-left'></i>
 				</div>
 			</div>
 			<!--navigation-->
-			<ul class="metismenu" id="menu">
+			<ul class="metismenu open" id="menu">
 				<li>
 					<a href="javascript:;" class="has-arrow">
 						<div class="parent-icon"><i class='bx bx-home-circle'></i>
@@ -53,7 +52,6 @@
 						<div class="menu-title">Мониторинг</div>
 					</a>
 					<ul>
-						{% comment %} <li><a href={% url 'index' %}><i class="bx bx-right-arrow-alt"></i>Главная</a></li> {% endcomment %}
 						<li><a href={% url 'notes' %}><i class="bx bx-right-arrow-alt"></i>Отчеты</a></li>
 						<li><a href={% url 'create' %}><i class="bx bx-right-arrow-alt"></i>Добавить отчет</a></li>
 					</ul>
@@ -67,7 +65,7 @@
 		
 		<header>
 			<div style="opacity: 0;" class="topbar d-flex align-items-center">
-				<nav class="navbar navbar-expand">
+				<nav  class="navbar navbar-expand">
 					<div class="mobile-toggle-menu"><i class='bx bx-menu'></i>
 					</div>
 					<div class="search-bar flex-grow-1">
@@ -426,8 +424,8 @@
 	<script>
 		tinymce.init({
 			selector: '#mytextarea',
-			width: 600,
-			height: 300,
+			width: '90%',
+			height: 500,
 			plugins: [
 			  'advlist autolink link image lists charmap print preview hr anchor pagebreak',
 			  'searchreplace wordcount visualblocks code fullscreen insertdatetime media nonbreaking',
@@ -448,11 +446,28 @@
 	<script>
 		$(".dataTables_paginate").hide();
 	</script>
-	<script>
+	{% comment %} <script>
 		$(document).ready(function() {
-			var div = $('#example2').DataTable();
-		 
+			var div = $('#example2').DataTable({
+				'responsive': true
+			});
 		} );
+	</script> {% endcomment %}
+	<script>
+		$( 'table' ).DataTable( {
+			order: [ [ 0, "asc" ] ],
+			  responsive: {
+				  details: {
+					  type: 'column',
+					  target: 'tr'
+				  }
+			  },
+			  columnDefs: [ {
+				  className: 'control',
+				  orderable: false,
+				  targets: -1
+			  } ]
+		  } );
 	</script>
 	<script src="{% static 'notes/js/index.js' %}"></script>
 	<!--app JS-->

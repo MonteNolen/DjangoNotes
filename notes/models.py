@@ -28,7 +28,6 @@ class Note(models.Model):
     """
     Модель для представления отчета
     """
-    title = models.CharField("Заголовок", max_length=100)
     user = models.ForeignKey('NoteAuthor', on_delete=models.SET_NULL, null=True, verbose_name='Пользователь')
     created = models.DateField("Создана", auto_now=True)
     status = models.BooleanField("Закрыто?", default=False)
