@@ -22,7 +22,7 @@ class NoteDetailView(generic.DetailView):
 class NoteListView(generic.ListView):
     model = Note
     template_name = 'notes/note_list.html'
-    paginate_by = 20
+    #paginate_by = 20
     def get_queryset(self):
         return Note.objects.all()
 
