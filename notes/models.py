@@ -30,7 +30,6 @@ class Note(models.Model):
     """
     user = models.ForeignKey('NoteAuthor', on_delete=models.SET_NULL, null=True, verbose_name='Пользователь')
     created = models.DateField("Создана", auto_now=True)
-    status = models.BooleanField("Закрыто?", default=False)
     textarea = HTMLField("Поле для отчета", max_length=20000)
 
     class Meta:

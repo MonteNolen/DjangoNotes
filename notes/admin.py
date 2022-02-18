@@ -12,13 +12,13 @@ admin.site.register(NoteAuthor, NoteAuthorAdmin)
 
 @admin.register(Note)
 class NoteAdmin(admin.ModelAdmin):
-    list_filter = ('user', 'status', 'created')
-    list_display = ('user', 'status', 'created')
+    list_filter = ('user', 'created')
+    list_display = ('user', 'created')
     fieldsets = (
         # (None, { 
         #     'fields': ('note', 'id')
         # }),
         ('Availability', {
-            'fields': ('user', 'textarea', 'status')
+            'fields': ('user', 'textarea')
         }),
     )

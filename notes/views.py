@@ -29,7 +29,7 @@ class NoteListView(generic.ListView):
 
 class NoteUpdate(UpdateView):
     model = Note
-    fields = ['user','textarea', 'status']
+    fields = ['user','textarea']
     template_name = 'notes/note_form.html'
     success_url = reverse_lazy('notes')
 
@@ -46,7 +46,7 @@ class NoteUpdate(UpdateView):
 
 class NoteCreate(CreateView):
     model = Note
-    fields = ['user','textarea', 'status']
+    fields = ['user','textarea']
     success_url = reverse_lazy('notes')
     template_name = 'notes/create.html'
 
